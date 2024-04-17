@@ -1,0 +1,119 @@
+﻿@model IEnumerable<DisasterResponseSystem.Models.AffectedIndividualsRequests>
+@using static DisasterResponseSystem.Common.Enums
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FamilyMembers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaritalStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evaluation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AffectedType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EvaluatesRequestsStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountSpent)
+            </th>
+            <th>
+                Inkind Item
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyMembers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaritalStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Evaluation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AffectedType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EvaluatesRequestsStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountSpent)
+            </td>
+            <td>
+                @{
+                    if (item.AffectedIndividualsInkinds != null)
+                    {
+                        var inkinds = item.AffectedIndividualsInkinds.ToList();
+                        foreach (var inkind in inkinds)
+                        {
+                            <span>@inkind.Name:</span>
+                            <span>@inkind.QTY</span>
+                        }
+                    }
+
+                }
+
+            </td>
+            @if (item.EvaluatesRequestsStatus == EvaluatesRequestsStatus.ForDelivery)
+            {
+                <td>
+                    <a asp-action="Recived" asp-route-id="@item.ID">Recived</a>
+                </td>
+            }
+
+        </tr>
+        }
+    </tbody>
+</table>

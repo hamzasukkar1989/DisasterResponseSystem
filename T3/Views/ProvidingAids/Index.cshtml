@@ -1,0 +1,97 @@
+﻿@model DisasterResponseSystem.Models.ProvidingAids
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="DisbursesAid">Disburses Aid </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                Country
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                FamilyMembers
+            </th>
+            <th>
+                MaritalStatus
+            </th>
+            <th>
+                Evaluation
+            </th>
+            <th>
+                RequestDate
+            </th>
+            <th>
+                AffectedType
+            </th>
+            <th>
+                EvaluatesRequestsStatus
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model!=null && Model.AffectedIndividualsRequests!=null)
+        {
+            @foreach (var item in Model.AffectedIndividualsRequests)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FamilyMembers)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaritalStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Evaluation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AffectedType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EvaluatesRequestsStatus)
+                    </td>
+                    @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>*@
+                </tr>
+            }
+
+        }
+
+
+    </tbody>
+</table>

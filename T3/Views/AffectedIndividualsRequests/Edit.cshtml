@@ -1,0 +1,79 @@
+﻿@model DisasterResponseSystem.Models.AffectedIndividualsRequests
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AffectedIndividualsRequests</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FamilyMembers" class="control-label"></label>
+                <input asp-for="FamilyMembers" class="form-control" />
+                <span asp-validation-for="FamilyMembers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaritalStatus" class="control-label"></label>
+                <select asp-for="MaritalStatus" class="form-control"></select>
+                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Evaluation" class="control-label"></label>
+                <input asp-for="Evaluation" class="form-control" />
+                <span asp-validation-for="Evaluation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestDate" class="control-label"></label>
+                <input asp-for="RequestDate" class="form-control" />
+                <span asp-validation-for="RequestDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AffectedType" class="control-label"></label>
+                <select asp-for="AffectedType" class="form-control"></select>
+                <span asp-validation-for="AffectedType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EvaluatesRequestsStatus" class="control-label"></label>
+                <select asp-for="EvaluatesRequestsStatus" class="form-control"></select>
+                <span asp-validation-for="EvaluatesRequestsStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DisasterResponseSystem.Models.inkindAids>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DonorEntitie.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QTY)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonorEntitie.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QTY)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.inkindAidsID">Edit</a> |*@
+                <a asp-action="Details" asp-route-id="@item.inkindAidsID">Details</a> 
+                @*<a asp-action="Delete" asp-route-id="@item.inkindAidsID">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
